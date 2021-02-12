@@ -14,12 +14,8 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', [AllUsersController::class, 'index']);
-Route::get('/users', [UsersController::class, 'index']);
-
-
-Route::get('/users/{id}', [UserController::class, 'show']);
-Route::put('/users/{id}', [UserController::class, 'update']);
+Route::get('/user/{id}', [AllUsersController::class, 'show']);
+Route::put('/user/{id}', [UserController::class, 'update']);
 
 
 
