@@ -13,10 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create()->each(function ($user) {
+        \App\Models\User::factory(3)->create()->each(function ($user) {
 
             // Seed the relation with 5 addresses
-            $addresses = \App\Models\Address::factory( 5)->make();
+            $addresses = \App\Models\Address::factory( 2)->make();
             $user->addresses()->saveMany($addresses);
         });
     }

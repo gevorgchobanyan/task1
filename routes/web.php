@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AllUsersController;
 use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +13,8 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/user/{id}', [AllUsersController::class, 'show']);
-Route::put('/user/{id}', [UserController::class, 'update']);
 
-
+Route::get('/', [UserController::class, 'index']);
 
 
 
