@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class StorePutRequest extends FormRequest
 {
@@ -25,11 +27,25 @@ class StorePutRequest extends FormRequest
     {
         return [
             //
+            'user_id' => 'required',
             'state' => 'required',
             'city' => 'required',
             'street' => 'required',
             'apartment' => 'required',
             'postcode' => 'required'
         ];
+    }
+
+
+    protected function failedValidation(Validator $validator)
+    {
+        $errors = $validator->errors();
+
+        $response = response()->json([
+            'message' => 'Invalid data send',
+            'details' => $errors->messages(),
+        ], 422);
+
+        throw new HttpResponseException($response);
     }
 }
