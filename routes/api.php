@@ -22,7 +22,7 @@ Route::get('/users/{id}', [UserController::class, 'show']);
 Route::get('/users/{id}/addresses', [UserController::class, 'showAddresses']);
 //CREATE, UPDATE DELETE
 Route::post('/addresses', [UserController::class, 'saveAddress']);
-Route::put('/addresses/{address}', [UserController::class, 'updateAddress']);
-Route::put('/users/{user}', [UserController::class, 'updateUser']);
-Route::delete('/addresses/{address}', [UserController::class, 'deleteAddress']);
+Route::put('/addresses/{id}', [UserController::class, 'updateAddress']);
+Route::put('/users/{id}', [UserController::class, 'updateUser']);
+Route::delete('/addresses/{id}', [UserController::class, 'deleteAddress']);
 

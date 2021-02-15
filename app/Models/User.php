@@ -37,12 +37,4 @@ class User extends Model
             ->get();
     }
 
-    static function retrieveRecordById($user_id): \Illuminate\Support\Collection
-    {
-        return DB::table('users')
-            ->select('id','name', 'lastname', 'consent')
-            ->where('id', '=', $user_id)
-            ->get();
-    }
-
 }
